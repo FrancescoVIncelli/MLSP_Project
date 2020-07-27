@@ -19,12 +19,14 @@ English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). Il modello prese
 - 3 Convolutional-1D layers (con Max Pooling e Batch Normalization layers e ReLU activation function)
 - 3 GRU layers da 128 unità, preceduta e seguita da BAtch Normalization layers
 - 1 Fully Connected layer d 256 unità
+
 ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/dnn_model_architecture.png)
 
 > `QNN_model` definisce una Quaternion Neural Network composta da:
 - 4 Quaternion Convolutional 1D layers (con Max Pooling e PReLU activation function)
 - 3 Fully Connected layer da 256 unità
 ( La rete è ispirata all'architettura convoluzionale descritta nel paper: https://arxiv.org/pdf/1811.09678.pdf )
+
 ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/qnn_model_architecture.png)
 
 ## Risultati

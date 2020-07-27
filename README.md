@@ -37,6 +37,9 @@ Epoch 50/50 | loss: 0.1522 - accuracy: 0.9481 - val_loss: 0.1576 - val_accuracy:
 > Quaternion-NN model
 Epoch 50/50 | loss: 0.0552 - accuracy: 0.9900 - val_loss: 0.8690 - val_accuracy: 0.8567
 
+![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/qnn_train_val_acc.png)
+
+![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/qnn_train_val_loss.png)
 ## Da completare
 - Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico X = [x_1, ... , x_n] ad una sequenza di simboli T = [t_1, ...,  t_m] (Definire CTC loss function come descritto in https://arxiv.org/pdf/1811.09678.pdf )
 

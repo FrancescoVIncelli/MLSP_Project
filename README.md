@@ -25,6 +25,6 @@ English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). Il modello prese
 ( La rete è ispirata all'architettura convoluzionale descritta nel paper: https://arxiv.org/pdf/1811.09678.pdf )
 
 ## Da completare
-- Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico $X = [x_1, ... , x_n]$ ad una sequenza di simboli $T = [t_1, ...,  t_m]$ (Definire CTC loss function come descritto in https://arxiv.org/pdf/1811.09678.pdf )
+- Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico $X = [x_1, ... , x_n]$ ad una sequenza di simboli $T = [t_1, ...,  t_m]$ $`a^2+b^2=c^2`$ (Definire CTC loss function come descritto in https://arxiv.org/pdf/1811.09678.pdf )
 
 - Addestrare i modelli su un dataset differente (ad esempio TIMIT)

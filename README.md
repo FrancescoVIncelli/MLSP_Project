@@ -10,6 +10,7 @@ Nel dataset utilizzato, i files audio hanno la durata di 1 secondo e un sampling
 Il preprocessing è eseguito mediante la funzione `wav2mfcc` che produce:
 - rimozione dei comandi contenuti in file audio più brevi di 1 secondo
 - estrazione delle features mediante il calcolo di *Mel-frequency Cepstral coefficient* e *40-dimensional log Mel-filter-bank coefficients* (seguendo il seguente blog: https://haythamfayek.com/2016/04/21/speech-processing-for-machine-learning.html )
+- Creazione della matrice di input quaternionica (per il training della rete QNN ) 
 
 ## 3. Architetture utilizzatel
 Il file `models` contiene due metodi per la creazione di due modelli neurali

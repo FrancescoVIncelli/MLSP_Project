@@ -2,14 +2,14 @@
 
 import tensorflow as tf
 from tensorflow.keras.layers import Layer, Dense, Dropout, Flatten, Input, BatchNormalization ,\
-    GRU, Bidirectional, Conv2D, MaxPooling2D, Conv1D, MaxPooling1D
+    PReLU, GRU, Bidirectional, Conv2D, MaxPooling2D, Conv1D, MaxPooling1D
 from tensorflow.keras.models import Model
 
 #from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from tensorflow.keras import backend as K
 
-import quaternion_nn
-from quaternion_nn import QuaternionConv1D, QuaternionDense
+import complexnn
+from complexnn import QuaternionConv1D, QuaternionDense
 #K.clear_session()
 
 
@@ -66,6 +66,65 @@ return
     model: QUaternion-CNN model
 """
 def QNN_model(n_classes):
+    kern = 8
+    n_layers = 9
+    inputs = Input(shape=(98,40))
+    
+    # First QConv1D layer
+    x = QuaternionConv1D(kern, 2, strides=1, activation="relu", padding="valid", use_bias=True)(inputs)
+    x = PReLU()(x)
+    
+    # Second QConv1D layer
+    x = QuaternionConv1D(kern*2, 2, strides=1, activation="relu", padding="valid", use_bias=True)(x)
+    x = PReLU()(x)
+    
+    # Third QConv1D layer
+    x = QuaternionConv1D(kern*4, 2, strides=1, activation="relu", padding="valid", use_bias=True)(x)
+    x = PReLU()(x)
+    
+    # Fourth QConv1D layer
+    x = QuaternionConv1D(kern*8, 2, strides=1, activation="relu", padding="valid", use_bias=True)(x)
+    x = PReLU()(x)
+    
+    """
+    # Conv 1D layers (1-3)
+    for i in range(n_layers//3):
+        x = QuaternionConv1D(kern*2, 2, strides=1, activation="relu", padding="valid", use_bias=True)(x)
+        x = PReLU()(x)
+        
+    # Conv 1D layers (4-6)
+    for i in range(n_layers//3):
+        x = QuaternionConv1D(kern*4, 2, strides=1, activation="relu", padding="valid", use_bias=True)(x)
+        x = PReLU()(x)
+       
+    # Conv 1D layers (7-9)
+    for i in range(n_layers//3):
+        x = QuaternionConv1D(kern*8, 2, strides=1, activation="relu", padding="valid", use_bias=True)(x)
+        x = PReLU()(x)
+    """
+    
+
+    # FLatten layer
+    flat   = Flatten()(x)
+    
+    # Dense layer 1
+    dense  = QuaternionDense(256, activation='relu')(flat)
+    # Dense layer 2
+    dense2  = QuaternionDense(256, activation='relu')(dense)
+    # Dense layer 2
+    dense3  = QuaternionDense(256, activation='relu')(dense2)
+    
+    outputs = Dense(n_classes, activation='softmax')(dense3)
+    
+    model = Model(inputs = inputs, outputs = outputs)
+    model.summary()
+    
+    return model
+    return model
+
+
+""" Old Model
+def QNN_model(n_classes):
     inputs = Input(shape=(98,40))
     
     # First QConv1D layer
@@ -103,3 +162,4 @@ def QNN_model(n_classes):
     model.summary()
     
     return model
+"""

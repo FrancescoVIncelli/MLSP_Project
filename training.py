@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import matplotlib.pyplot as plt
-
+import tensorflow as tf
+from tensorflow import keras
+from keras.callbacks import EarlyStopping, ModelCheckpoint
 
 """ Performs training of network model on training and validation sets
 params
@@ -17,7 +19,7 @@ def train(model, train_data, val_data):
     
     history = model.fit(x=X_train, 
                         y=y_train,
-                        epochs=20, 
+                        epochs=50, 
                         #callbacks=[early_stop, checkpoint], 
                         batch_size=32, 
                         validation_data=(X_dev, y_dev)

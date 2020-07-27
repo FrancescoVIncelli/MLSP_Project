@@ -13,6 +13,8 @@ from scipy.fftpack import dct
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 
+from tqdm import tqdm
+
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -131,18 +133,18 @@ return
 def get_data(split_ratio = 0.8, quaternion=False):
     train_audio_path = './dataset/eng_data_subset'
     
-    labels=["yes", "up", "down", "left", "right", "on", "go"] # "no", "off", "stop"
+    labels=["yes" , "up", "down", "left", "right", "on", "go"] # "no", "off", "stop"
     indexes = {"yes":0, "up":1, "down":2, "left":3, "right":4, "on":5, "go":6, "off":7, "stop":8, "no":9}
     
     all_wave = []
     all_label = []
     for label in labels:
-        print(label)
+        print("\n[*] Command word: ", label)
         waves = [f for f in os.listdir(train_audio_path + '/'+ label) if f.endswith('.wav')]
-        for wav in waves:
-            print(wav)
-            #samples, sample_rate = librosa.load(train_audio_path + '/' + label + '/' + wav, sr = 16000)
-            #resampled_sognal = librosa.resample(samples, sample_rate, 8000)
+        for wav in tqdm(waves):
+            # print(wav)
+            # samples, sample_rate = librosa.load(train_audio_path + '/' + label + '/' + wav, sr = 16000)
+            # resampled_sognal = librosa.resample(samples, sample_rate, 8000)
             file_path = train_audio_path + '/' + label + '/' + wav
             sample_rate, signal = scipy.io.wavfile.read(file_path)
             mfcc_samples = wav2mfcc(signal, sample_rate) # mfcc_sample

@@ -1,15 +1,7 @@
-# Tensorflow Quaternion
-An implementation of quaternions for tensorflow. Fully differentiable.
+# Deep Learning for Speech Recognition in Humanoid Robots
+Repository contenente i files del progetto dell'esame di MLSP
 
-The tfquaternion module provides an implementation of quaternions as a
-tensorflow graph.
-`tfquaternion` offers module functions for the basic quaternion arithmetic
-operations as well as a `Quaternion` class which supports the relevant magic
-methods. This is similar to the tensorflow API, e.g. `tfq.quaternion_multiply`
-vs. `tf.multiply` and `tfq.Quaternion` vs `tf.Tensor`. Note that all functions
-starting with `tf.quaternion_...` assume that it's arguments are `tf.Tensor`s
-(or `tfq.Quaternion`s) that can be casted to `tfq.Quaternion`, i.e. the shape
-must be (..., 4).
+Il file `models` contiene due metodi per la creazione di due modelli neurali
 
 This implementation is mostly compatible with a small subset of
 [moble's quaternion implementation](https://github.com/moble/quaternion/)

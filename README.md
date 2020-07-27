@@ -31,15 +31,13 @@ English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). Il modello prese
 
 ## Risultati
 Entrambi i modelli sono stati trainati su 50 epoche, con un sottoinsieme di sette *command words* del dataset utilizzato
-> DNN (Non-Quaternion) model
-Epoch 50/50 | loss: 0.1522 - accuracy: 0.9481 - val_loss: 0.1576 - val_accuracy: 0.9500
+> DNN (Non-Quaternion) model | oss: 0.1522 - accuracy: 0.9481 - val_loss: 0.1576 - val_accuracy: 0.9500
 
 ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/dnn_train_val_acc.png)
 
 ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/dnn_train_val_loss.png)
 
-> Quaternion-NN model
-Epoch 50/50 | loss: 0.0552 - accuracy: 0.9900 - val_loss: 0.8690 - val_accuracy: 0.8567
+> Quaternion-NN model | loss: 0.0552 - accuracy: 0.9900 - val_loss: 0.8690 - val_accuracy: 0.8567
 
 ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/qnn_train_val_acc.png)
 

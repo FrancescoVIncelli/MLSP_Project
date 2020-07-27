@@ -24,8 +24,9 @@ English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). Il modello prese
 - 3 Fully Connected layer da 256 unità
 ( La rete è ispirata all'architettura convoluzionale descritta nel paper: https://arxiv.org/pdf/1811.09678.pdf )
 
-  ```
-  _________________________________________________________________
+  <details> 
+  <summary>Model Architecture of QNN </summary>
+   _________________________________________________________________
   Layer (type)                 Output Shape              Param #   
   =================================================================
   input_1 (InputLayer)         [(None, 98, 40)]          0         
@@ -84,7 +85,7 @@ English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). Il modello prese
   Trainable params: 1,711,687
   Non-trainable params: 0
   _________________________________________________________________
-  ```
+  </details>
 
 ## Da completare
 - Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico $X = [x_1, ... , x_n]$ ad una sequenza di simboli $T = [t_1, ...,  t_m]$ (Definire CTC loss function come descritto in https://arxiv.org/pdf/1811.09678.pdf )

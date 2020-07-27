@@ -29,7 +29,7 @@ English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). Il modello prese
 Entrambi i modelli sono stati trainati su 50 epoche, con un sottoinsieme del dataset utilizzato
 > DNN (Non-Quaternion) model
 Epoch 50/50 | loss: 0.1522 - accuracy: 0.9481 - val_loss: 0.1576 - val_accuracy: 0.9500
-
+![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/dnn_model_architecture.png)
 ## Da completare
 - Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico X = [x_1, ... , x_n] ad una sequenza di simboli T = [t_1, ...,  t_m] (Definire CTC loss function come descritto in https://arxiv.org/pdf/1811.09678.pdf )
 

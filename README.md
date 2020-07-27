@@ -14,12 +14,14 @@ Il preprocessing è eseguito mediante la funzione `wav2mfcc` che produce:
 ## 3. Architetture utilizzatel
 Il file `models` contiene due metodi per la creazione di due modelli neurali
 > `DNN_model` definisce una Deep Neural Network sulla base dell'architettura descritta nel paper 'Deep Speech 2: End-to-End Speech Recognition in
-English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). L'architettura è composta da due sub-networks:
-1) una CNN composta da tre 1-D Convolutional layers (con Max Pooling e Batch Normalization layers)
-2) una RNN composta da 3 GRU layers da 128 unità, preceduta e seguita da BAtch Normalization layers
-3) un Fully Connected layer d 256 unità
+English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). Il modello presenta una architettura 'mista':
+- 3 Convolutional-1D layers (con Max Pooling e Batch Normalization layers e ReLU activation function)
+- 3 GRU layers da 128 unità, preceduta e seguita da BAtch Normalization layers
+- 1 Fully Connected layer d 256 unità
 
-> `QNN_model` definisce una Quaternion Neural Network composta da 10 1-D Quaternion Convolutional layers (con Max Pooling e PReLU activation function) e 3 Fully Connected layer da 256 unità
+> `QNN_model` definisce una Quaternion Neural Network composta da:
+- 10 1-D Quaternion Convolutional layers (con Max Pooling e PReLU activation function)
+- 3 Fully Connected layer da 256 unità
 ( La rete è ispirata all'architettura convoluzionale descritta nel paper: https://arxiv.org/pdf/1811.09678.pdf )
 
 ## Da completare

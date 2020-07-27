@@ -20,11 +20,16 @@ English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). Il modello prese
 - 1 Fully Connected layer d 256 unità
 
 > `QNN_model` definisce una Quaternion Neural Network composta da:
-- 10 1-D Quaternion Convolutional layers (con Max Pooling e PReLU activation function)
+- 4 Quaternion Convolutional 1D layers (con Max Pooling e PReLU activation function)
 - 3 Fully Connected layer da 256 unità
 ( La rete è ispirata all'architettura convoluzionale descritta nel paper: https://arxiv.org/pdf/1811.09678.pdf )
 
+## Risultati
+Entrambi i modelli sono stati trainati su 50 epoche, con un sottoinsieme del dataset utilizzato
+> DNN (Non-Quaternion) model
+Epoch 50/50 | loss: 0.1522 - accuracy: 0.9481 - val_loss: 0.1576 - val_accuracy: 0.9500
+
 ## Da completare
-- Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico $X = [x_1, ... , x_n]$ ad una sequenza di simboli $T = [t_1, ...,  t_m]$ $`a^2+b^2=c^2`$ (Definire CTC loss function come descritto in https://arxiv.org/pdf/1811.09678.pdf )
+- Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico X = [x_1, ... , x_n] ad una sequenza di simboli T = [t_1, ...,  t_m] (Definire CTC loss function come descritto in https://arxiv.org/pdf/1811.09678.pdf )
 
 - Addestrare i modelli su un dataset differente (ad esempio TIMIT)

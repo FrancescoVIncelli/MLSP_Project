@@ -1,6 +1,12 @@
 # Deep Learning for Speech Recognition in Humanoid Robots
 Repository contenente i files del progetto dell'esame di MLSP
 
+## Aggiornamenti
+- Preprocessamento del dataset TIMIT per phoneme recognition
+- Correzione della creazione della *input features matrix* e delle *target variables* dai file audio del dataset TIMIT
+- Classe per la creazione del modello neurale convoluzionale quaternionico e non quaternionico, con specifica degli iperparametri dei layers.
+- Funzione per la coversione del tipo dei file audio in TIMIT dataset da NIST SPHERE a .wav
+
 ## 1. Dataset
 Per gli esperimenti eseguiti è stato utilizzato il dataset 'Speech Commands Dataset' fornito da Tensorflow (description: https://www.tensorflow.org/datasets/catalog/speech_commands | download: http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz.)
 Comprendente migliaia di file audio contenneti l'espressione di brevi parole pronunciate da migliaia di persone.

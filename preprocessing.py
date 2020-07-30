@@ -19,6 +19,42 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
+""" Convert data type from NIST SHPERE to .wav
+prams
+    train_data_path: path to train data
+    test_data_path: path to test data
+return
+    None
+"""
+def sph2wav(train_data_path, test_data_path):
+    sph_files = glob.glob(train_data_path)
+    print(len(sph_files),"train utterences")
+    for i in sph_files:
+        print("FILE: ",i)
+        sph = SPHFile(i)
+        #sph.write_wav(filename=i.replace(".WAV","_.wav"))
+        sample_count = sph.format['sample_count']
+        sample_rate = sph.format['sample_rate']
+        end_time = sample_count / sample_rate
+        j = sph.write_wav(i.replace(".WAV",".tmp"), 0.0, end_time )
+        os.remove(i)
+        sph.write_wav(j.replace(".tmp",".wav"), 0.0, end_time )
+        os.remove(j)
+
+    sph_files_test = glob.glob(test_data_path)
+    print(len(sph_files_test),"test utterences")
+    for i in sph_files_test:
+        print("FILE: ",i)
+        sph = SPHFile(i)
+        #sph.write_wav(filename=i.replace(".WAV","_.wav"))
+        sample_count = sph.format['sample_count']
+        sample_rate = sph.format['sample_rate']
+        end_time = sample_count / sample_rate
+        j = sph.write_wav(i.replace(".WAV",".tmp"), 0.0, end_time )
+        os.remove(i)
+        sph.write_wav(j.replace(".tmp",".wav"), 0.0, end_time )
+        os.remove(j)
+    
 """ Create quaternion input matrix 
 prams
     X: mfcc tensor of data features

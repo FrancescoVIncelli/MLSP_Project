@@ -45,12 +45,6 @@ Entrambi i modelli sono stati trainati su 50 epoche, con un sottoinsieme di sett
 
 Il modello quaternionico ottiene risultati leggermente inferiori al modello non quaternionico. Per migliorare le prestazioni, vorrei provare ad aggiungere dei *recurrent layers* anche al modello quaternionico, anche se la libreria utilizzata (implementata in Tensorflow) non dispone di tali layers, disponibili invece nella seconda libreria implementata in PyTorch. Inoltre altre combinazioni di layers convoluzionali e alte tecniche di pre-processamento della matrice in input alla rete quaternionica sono in fase di sperimentazione.
 
-## Aggiornamenti
-- Preprocessamento del dataset TIMIT per phoneme recognition
-- Correzione della creazione della *input features matrix* e delle *target variables* dai file audio del dataset TIMIT
-- Classe per la creazione del modello neurale convoluzionale quaternionico e non quaternionico, con specifica degli iperparametri dei layers.
-- Funzione per la coversione del tipo dei file audio in TIMIT dataset da NIST SPHERE a .wav
-
 ## Da completare
 - Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico X = [x_1, ... , x_n] ad una sequenza di simboli T = [t_1, ...,  t_m] (Definire CTC loss function come descritto in https://arxiv.org/pdf/1811.09678.pdf )
 

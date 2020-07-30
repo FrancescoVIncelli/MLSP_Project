@@ -14,8 +14,8 @@ from   tensorflow.keras.regularizers     import l2
 from   tensorflow.keras.utils            import to_categorical
 import tensorflow.keras.backend          as     K
 
-#from   keras.callbacks                       import Callback, ModelCheckpoint, LearningRateScheduler
-#from   keras.initializers                    import Orthogonal
+#from   keras.callbacks                 import Callback, ModelCheckpoint, LearningRateScheduler
+#from   keras.initializers              import Orthogonal
 
 import numpy as np
 

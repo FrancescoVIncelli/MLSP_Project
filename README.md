@@ -2,10 +2,10 @@
 Repository contenente i files del progetto dell'esame di MLSP
 
 ## Aggiornamenti
-- Preprocessamento del dataset TIMIT per phoneme recognition
-- Correzione della creazione della *input features matrix* e delle *target variables* dai file audio del dataset TIMIT
-- Classe per la creazione del modello neurale convoluzionale quaternionico e non quaternionico, con specifica degli iperparametri dei layers.
-- Funzione per la coversione del tipo dei file audio in TIMIT dataset da NIST SPHERE a .wav
+- Inserito il preprocessamento del dataset TIMIT per phoneme recognition
+- Eseguita la correzione della creazione della *input features matrix* e delle *target variables* dai file audio del dataset TIMIT
+- Definita una classe per la creazione del modello neurale convoluzionale quaternionico e non quaternionico, con specifica degli iperparametri dei layers
+- Definita una funzione per la coversione del tipo dei file audio in TIMIT dataset da NIST SPHERE a .wav
 
 ## 1. Dataset
 Per gli esperimenti eseguiti è stato utilizzato il dataset 'Speech Commands Dataset' fornito da Tensorflow (description: https://www.tensorflow.org/datasets/catalog/speech_commands | download: http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz.)
@@ -53,5 +53,3 @@ Il modello quaternionico ottiene risultati leggermente inferiori al modello non 
 
 ## Da completare
 - Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico X = [x_1, ... , x_n] ad una sequenza di simboli T = [t_1, ...,  t_m] (Definire CTC loss function come descritto in https://arxiv.org/pdf/1811.09678.pdf )
-
-- Addestrare i modelli su un dataset differente (ad esempio TIMIT)

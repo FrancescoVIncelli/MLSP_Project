@@ -20,7 +20,7 @@ import tensorflow.keras.backend          as     K
 import numpy as np
 
     
-class CNN(object):
+class CNN_model(object):
     def __init__(self, quaternion, batch_size, lr, epochs):
         self.quaternion = quaternion
         self.batch_size = batch_size
@@ -29,11 +29,10 @@ class CNN(object):
         
     def _build_model(self):
         n_conv_layers = 6
-        fmap_size   = 8
+        fmap_size     = 8
         drop_prob     = 0.3
         inputShape    = (3,41,None)  
         filsize       = (3, 5)
-        Axis   = 1
         
         # Convolutional layers hyperparameters
         convArgs      = {

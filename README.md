@@ -2,11 +2,11 @@
 Repository contenente i files del progetto dell'esame di MLSP
 
 # Aggiornamenti
-- Inserito il preprocessamento del dataset TIMIT per phoneme recognition
 - Eseguita la correzione della creazione della *input features matrix* e delle *target variables* dai file audio del dataset TIMIT
 - Definita una classe per la creazione del modello neurale convoluzionale quaternionico e non quaternionico, con specifica degli iperparametri dei layers
 - Definita una funzione per la coversione del tipo dei file audio in TIMIT dataset da NIST SPHERE a .wav
 
+> Aggiornato il preprocessamento del dataset TIMTI per phoneme recognition mediante Quaternion Neural Networks
 > Aggiunti modelli quaternionici per *phoneme recognition* task: interspeech_model e QCNN_model (ottenuto modificando il modello precedente)
 > Aggiunta la Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico X = [x_1, ... , x_n] ad una sequenza di simboli T = [t_1, ...,  t_m] (CTC implementata come descritto in https://arxiv.org/pdf/1811.09678.pdf )
 

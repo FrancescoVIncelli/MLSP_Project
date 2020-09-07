@@ -10,6 +10,14 @@ Repository contenente i files del progetto dell'esame di MLSP
 > Aggiunti modelli quaternionici per *phoneme recognition* task: interspeech_model e QCNN_model (ottenuto modificando il modello precedente)
 > Aggiunta la Connectionist Temporal Classification (CTC) per migliorare il sequence-to-sequence mapping task da un segnale acustico X = [x_1, ... , x_n] ad una sequenza di simboli T = [t_1, ...,  t_m] (CTC implementata come descritto in https://arxiv.org/pdf/1811.09678.pdf )
 
+# Esperimenti su TIMIT Dataset
+## 1. Dataset
+![TIMIT Acoustic-Phonetic Continuous Speech Corpus](https://catalog.ldc.upenn.edu/LDC93S1) , contenente registrazioni di 630 speakers ricondicibili agli otto principali dialetti dell'inglese americano, comprendenti frasi foneticamente ricche.
+
+## 2. Preprocessing dei file audio
+I file audio presenti nel dataset hanno durante diverse in un range che viara da 0.Xs a 5.Xs . Sui file audio più brevi è stata quindi effettuata una procedura di padding, aggiungendo alla fine della sequenza campionata un segnale nullo. Quindi, è stato eseguita l'estrazione delle features, calcolando i *40-dimensional log Mel-filter-bank coefficients*, madiante le funzioni della libreria `python_speech_features`. La matrice di input quaternionica è stata quindi ottenuta seguendo la procedura descritta in ![Speech Recognition
+with Quaternion Neural Networks](https://arxiv.org/abs/1811.09678) componendo un vettore quaternionico cone le derivate prima, seconda e terza del filter-bank coefficients vector.
+
 # Esperimenti su Tensorflow Speech Commands Dataset
 ## 1. Dataset
 Per gli esperimenti eseguiti è stato utilizzato il dataset 'Speech Commands Dataset' fornito da Tensorflow (description: https://www.tensorflow.org/datasets/catalog/speech_commands | download: http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz.)
@@ -22,7 +30,7 @@ Il preprocessing è eseguito mediante la funzione `wav2mfcc` che produce:
 - estrazione delle features mediante il calcolo di *Mel-frequency Cepstral coefficient* e *40-dimensional log Mel-filter-bank coefficients* (seguendo il seguente blog: https://haythamfayek.com/2016/04/21/speech-processing-for-machine-learning.html )
 - Creazione della matrice di input quaternionica (per il training della rete QNN ) 
 
-## 3. Architetture utilizzatel
+## 3. Architetture utilizzate
 Il file `models` contiene due metodi per la creazione di due modelli neurali
 > `DNN_model` definisce una Deep Neural Network sulla base dell'architettura descritta nel paper 'Deep Speech 2: End-to-End Speech Recognition in
 English and Mandarin' ( https://arxiv.org/pdf/1512.02595.pdf ). Il modello presenta una architettura 'mista':

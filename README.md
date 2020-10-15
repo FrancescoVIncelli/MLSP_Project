@@ -90,7 +90,30 @@ _________________________________________________________________
 ```
 
 * Train session(s)
-Il modello è stato trainato sun un numero totale di epoche di 50, con i seguenti valori finali di CTC loss sul training e sul validation set:
+> Il modello è stato trainato sun un numero totale di epoche di 50. Di seguito sono riportati gli iperparametri definiti nella creazione del modello:
+
+```
+*Model arguments*
+
+model_class="simple_cnn_1D",
+model_type='real',
+input_shape=[778,160],
+n_layers_convs=6,
+n_layers_dense=3,
+sf_dim=8,
+kernel_size=(3),
+num_classes=61,
+act='linear',
+aact='prelu',
+padding='same',
+l2_reg=1e-5,
+shared_axes=[0,1],
+opt='adam',
+kernel_init='glorot_normal',
+max_str_len=75
+```
+
+> I valori della CTC loss ottenuti nelle fasi di training e validation sono illustrati di seguito:
 
 First train run                                                                                                                     |  Second train run
 :----------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------:

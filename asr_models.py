@@ -495,8 +495,6 @@ def sequential_cnn_1D(args):
     return model
 
 
-# Completare (reshape layer)
-"""
 def sequential_cnn_2D(args):
     #
     # Model parameters
@@ -633,4 +631,3 @@ def sequential_cnn_2D(args):
     model.compile(loss='categorical_crossentropy', optimizer=optimizer)
     
     return model
-"""

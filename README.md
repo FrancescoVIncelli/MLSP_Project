@@ -270,10 +270,13 @@ max_str_len=75
 
 > I valori della CTC loss ottenuti nelle fasi di training e validation sono illustrati di seguito:
 
-First train run                                                                                                                     |
-:----------------------------------------------------------------------------------------------------------------------------------:|
- loss: 118.9957 - val_loss: 124.3729                                                                                                |
-![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/simple_cnn_1D_ctc_loss_train_1stRun_20ep_PHN.png)  |
+First train run                                                                                                                                                 |
+:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+ loss: 42.9021 - val_loss: 82.8723                                                                                                                              |
+![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/Simple_2D_CNN_TYP-real_LOSS-ctc_LV-phn_TrainRun-1st_DATAPREP-TIMITSpeech.png)  |
+
+> Nella seconda sessione di training (arrestata prima dell'ultima epoca), si riscontra un evidente overfitting del modelo, come indicato dal valore della validation loss che aumenta al contrario della loss sul training set che si riduce sino al valore 29.1801
+
 <!--
 # Esperimenti su Tensorflow Speech Commands Dataset
 ## 1. Dataset

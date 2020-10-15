@@ -123,6 +123,81 @@ First train run                                                                 
 ### `simple_cnn_2D` Model
 
 ### `sequential_cnn_1D` Model
+* Model architecture summary
+```
+Model: "sequential_cnn_1D"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv_0 (Conv1D)              multiple                  3848      
+_________________________________________________________________
+p_re_lu_36 (PReLU)           multiple                  6224      
+_________________________________________________________________
+conv_1 (Conv1D)              multiple                  400       
+_________________________________________________________________
+p_re_lu_37 (PReLU)           multiple                  12448     
+_________________________________________________________________
+conv_2 (Conv1D)              multiple                  1568      
+_________________________________________________________________
+p_re_lu_38 (PReLU)           multiple                  24896     
+_________________________________________________________________
+conv_3 (Conv1D)              multiple                  6208      
+_________________________________________________________________
+p_re_lu_39 (PReLU)           multiple                  49792     
+_________________________________________________________________
+batch_normalization_8 (Batch multiple                  256       
+_________________________________________________________________
+time_distributed_12 (TimeDis multiple                  66560     
+_________________________________________________________________
+p_re_lu_40 (PReLU)           multiple                  796672    
+_________________________________________________________________
+time_distributed_13 (TimeDis multiple                  1049600   
+_________________________________________________________________
+p_re_lu_41 (PReLU)           multiple                  796672    
+_________________________________________________________________
+time_distributed_14 (TimeDis multiple                  1049600   
+_________________________________________________________________
+p_re_lu_42 (PReLU)           multiple                  796672    
+_________________________________________________________________
+batch_normalization_9 (Batch multiple                  4096      
+_________________________________________________________________
+dense_19 (Dense)             multiple                  62525     
+=================================================================
+Total params: 4,728,037
+Trainable params: 4,725,861
+Non-trainable params: 2,176
+_________________________________________________________________
+```
+
+* Train session(s)
+> Il modello è stato trainato sun un numero totale di epoche di 50. Di seguito sono riportati gli iperparametri definiti nella creazione del modello:
+
+```
+*Model arguments*
+
+model_class="sequential_cnn_1D",
+model_type='real',
+input_shape=[778,160],
+n_layers_convs=4,
+n_layers_dense=3,
+sf_dim=8,
+kernel_size=(3),
+num_classes=61,
+act='linear',
+aact='prelu',
+padding='same',
+l2_reg=1e-5,
+shared_axes=[0,1],
+opt='adam',
+kernel_init='glorot_normal'
+```
+
+> I valori della CTC loss ottenuti nelle fasi di training e validation sono illustrati di seguito:
+
+First train run                                                                                                                     |  Second train run
+:----------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------:
+ loss: 0.7384 - val_loss: 0.7558                                                                                                    | loss: loss: 0.7042 - val_loss: 0.7069
+![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/seq_cnn1D_phn_ctc_loss_plot_train.png)  |  ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/seq_cnn1D_phn_ctc_loss_plot_train.png)
 
 <!--
 # Esperimenti su Tensorflow Speech Commands Dataset

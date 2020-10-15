@@ -197,7 +197,7 @@ kernel_init='glorot_normal'
 First train run                                                                                                                     |  Second train run
 :----------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------:
  loss: 0.7384 - val_loss: 0.7558                                                                                                    | loss: loss: 0.7042 - val_loss: 0.7069
-![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/seq_cnn1D_phn_ctc_loss_plot_train.png)  |  ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/seq_cnn1D_phn_ctc_loss_plot_train.png)
+![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/seq_cnn1D_phn_ctc_loss_plot_train.png)  |  ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/seq_cnn1D_phn_ctc_loss_plot_train_2nd.png)
 
 <!--
 # Esperimenti su Tensorflow Speech Commands Dataset

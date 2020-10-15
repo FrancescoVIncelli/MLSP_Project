@@ -96,7 +96,11 @@ loss     | val_loss
 -------- | ------------
 110.2284 | 133.7241
 
-![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/simple_cnn_1D_ctc_loss_train_1stRun_20ep_PHN.png)
+First train run                                                                                                                     |  Second train run
+:----------------------------------------------------------------------------------------------------------------------------------:|:-------------------------:
+![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/simple_cnn_1D_ctc_loss_train_1stRun_20ep_PHN.png)  |  ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/simple_cnn_1D_ctc_loss_train_1stRun_20ep_PHN.png)
+
+![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/simple_cnn_1D_ctc_loss_train_run2nd_20-20ep_PHN.png)
 
 ### `simple_cnn_2D` Model
 

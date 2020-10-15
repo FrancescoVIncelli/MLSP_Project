@@ -29,10 +29,7 @@ In questo caso, il valore iniziale della loss è molto più basso rispetto ai ri
 
 ## Risultati
 ### `simple_cnn_1D` Model
-
-### `simple_cnn_2D` Model
-
-### `sequential_cnn_1D` Model
+* Model architecture summary
 > Model architecture summary
 ```
 Model: "simple_cnn_1D"
@@ -92,6 +89,10 @@ Trainable params: 5,345,189
 Non-trainable params: 2,880
 _________________________________________________________________
 ```
+### `simple_cnn_2D` Model
+
+### `sequential_cnn_1D` Model
+
 <!--
 # Esperimenti su Tensorflow Speech Commands Dataset
 ## 1. Dataset

@@ -30,7 +30,6 @@ In questo caso, il valore iniziale della loss è molto più basso rispetto ai ri
 ## Risultati
 ### `simple_cnn_1D` Model
 * Model architecture summary
-> Model architecture summary
 ```
 Model: "simple_cnn_1D"
 _________________________________________________________________
@@ -89,6 +88,13 @@ Trainable params: 5,345,189
 Non-trainable params: 2,880
 _________________________________________________________________
 ```
+
+* Train session(s)
+Il modello è stato trainato sun un numero totale di epoche di 50, con i seguenti valori finali di CTC loss sul training e sul validation set:
+loss | val_loss
+------------ | -------------
+110.2284 | 133.7241
+
 ### `simple_cnn_2D` Model
 
 ### `sequential_cnn_1D` Model

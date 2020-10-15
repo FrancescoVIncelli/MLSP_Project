@@ -17,12 +17,26 @@ Repository contenente i files del progetto dell'esame di MLSP
 ## 2. Preprocessing dei file audio
 I file audio presenti nel dataset hanno durante diverse in un range che viara da 0.Xs a 5.Xs . Sui file audio più brevi è stata quindi effettuata una procedura di padding, aggiungendo alla fine della sequenza campionata un segnale nullo. Quindi, è stato eseguita l'estrazione delle features, calcolando i *40-dimensional log Mel-filter-bank coefficients*, madiante le funzioni della libreria `python_speech_features`. La matrice di input quaternionica è stata quindi ottenuta seguendo la procedura descritta in [Speech Recognition with Quaternion Neural Networks](https://arxiv.org/abs/1811.09678) componendo un vettore quaternionico cone le derivate prima, seconda e terza del filter-bank coefficients vector.
 
+## 3. Architetture utilizzate
+Nel file `asr_models` sono definite più classi di modelli neurali
+> `simple_cnn_1D` e `simple_cnn_2D` definiscono una rispettivamente una architettura 1D e 2D convoluzionale che riprende l'architettura descritta nel paper [Deep Speech 2: End-to-End Speech Recognition in English and Mandarin](https://arxiv.org/pdf/1512.02595.pdf). Il modello presenta una architettura 'mista':
+- *N_conv* Conv1D o Conv-2D layers (con *N_conv* in {3,4,5,6}). Ciascun layer convoluzionale è seguito da un activation function layer *PReLU* , quindi l'output dell'intero blocco di *N_conv* convolutional layers è passato in input ad un layer per la Batch-Normalization.
+- *N_dense* Fully-Connected layers seguono il blocco convoluzionale (con *N_dense* in {1,2,3}), ciascuno avente 1024 unità. Ciascun dense layer è inglobato in un *TimeDistributed* layer per applicare l'output del layer a ciascun intervallo temporale dell'input. Eventualmente può essere applicato dropout con probabilità 0.3 per ridurre l'overfitting. Anche il *Blocco Fully-Connected* è seguito da un layer per la Batch-Normalization.
+- Un dense layer finale, con numero di unità pari al numero di classi delle dell'insieme di fonemi, genera l'output del modello
+
+> `sequrntial_cnn_1D` e `sequrntial_cnn_1D` sono modelli sequenziali che presentano un'architettura analoga ai modelli `simple_cnn_1D` e `simple_cnn_2D` , ma a differenza di questi ultimi, essi sono definiti per essere addestrati sulla base della categoical cross-entropy loss (e non la CTC loss).
+In questo caso, il valore iniziale della loss è molto più basso rispetto ai rispettivi modelli che adottano la CTC loss (~140 vs. ~0.72) , e anche l'overfitting è minore.
+
+## Risultati
+### `simple_cnn_1D` Model
+
 <!--
 # Esperimenti su Tensorflow Speech Commands Dataset
 ## 1. Dataset
 Per gli esperimenti eseguiti è stato utilizzato il dataset 'Speech Commands Dataset' fornito da Tensorflow (description: https://www.tensorflow.org/datasets/catalog/speech_commands | download: http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz.)
 Comprendente migliaia di file audio contenneti l'espressione di brevi parole pronunciate da migliaia di persone.
 
+<!--
 ## 2. Preprocessing dei file audio
 Nel dataset utilizzato, i files audio hanno la durata di 1 secondo e un sampling rate molto elevato.
 Il preprocessing è eseguito mediante la funzione `wav2mfcc` che produce:
@@ -30,6 +44,7 @@ Il preprocessing è eseguito mediante la funzione `wav2mfcc` che produce:
 - estrazione delle features mediante il calcolo di *Mel-frequency Cepstral coefficient* e *40-dimensional log Mel-filter-bank coefficients* (seguendo il seguente blog: https://haythamfayek.com/2016/04/21/speech-processing-for-machine-learning.html )
 - Creazione della matrice di input quaternionica (per il training della rete QNN ) 
 
+<!--
 ## 3. Architetture utilizzate
 Il file `models` contiene due metodi per la creazione di due modelli neurali
 > `DNN_model` definisce una Deep Neural Network sulla base dell'architettura descritta nel paper 'Deep Speech 2: End-to-End Speech Recognition in

@@ -34,7 +34,7 @@ In questo caso, il valore iniziale della loss è molto più basso rispetto ai ri
 
 ### `sequential_cnn_1D` Model
 > Model architecture summary
-'''
+```
 Model: "simple_cnn_1D"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
@@ -91,7 +91,7 @@ Total params: 5,348,069
 Trainable params: 5,345,189
 Non-trainable params: 2,880
 _________________________________________________________________
-'''
+```
 <!--
 # Esperimenti su Tensorflow Speech Commands Dataset
 ## 1. Dataset

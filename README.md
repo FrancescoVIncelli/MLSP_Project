@@ -91,8 +91,9 @@ _________________________________________________________________
 
 * Train session(s)
 Il modello è stato trainato sun un numero totale di epoche di 50, con i seguenti valori finali di CTC loss sul training e sul validation set:
-loss | val_loss
------------- | -------------
+
+loss     | val_loss
+-------- | ------------
 110.2284 | 133.7241
 
 ### `simple_cnn_2D` Model

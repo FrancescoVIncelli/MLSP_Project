@@ -120,8 +120,6 @@ First train run                                                                 
  loss: 118.9957 - val_loss: 124.3729                                                                                                | loss: 110.2284 - val_loss: 133.7241
 ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/simple_cnn_1D_ctc_loss_train_1stRun_20ep_PHN.png)  |  ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/simple_cnn_1D_ctc_loss_train_run2nd_20-20ep_PHN.png)
 
-### `simple_cnn_2D` Model
-
 ### `sequential_cnn_1D` Model
 * Model architecture summary
 ```
@@ -199,6 +197,83 @@ First train run                                                                 
  loss: 0.7384 - val_loss: 0.7558                                                                                                    | loss: loss: 0.7042 - val_loss: 0.7069
 ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/seq_cnn1D_phn_ctc_loss_plot_train.png)  |  ![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/seq_cnn1D_phn_ctc_loss_plot_train_2nd.png)
 
+### `simple_cnn_2D` Model
+* Model architecture summary
+```
+Model: "simple_cnn_2D"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+the_input (InputLayer)       [(None, 778, 4, 40)]      0         
+_________________________________________________________________
+batch_normalization_13 (Batc (None, 778, 4, 40)        160       
+_________________________________________________________________
+conv_0 (Conv2D)              (None, 778, 4, 8)         2888      
+_________________________________________________________________
+conv_1 (Conv2D)              (None, 778, 4, 16)        1168      
+_________________________________________________________________
+conv_2 (Conv2D)              (None, 778, 4, 32)        4640      
+_________________________________________________________________
+conv_3 (Conv2D)              (None, 778, 4, 64)        18496     
+_________________________________________________________________
+batch_normalization_14 (Batc (None, 778, 4, 64)        256       
+_________________________________________________________________
+reshape (Reshape)            (None, 778, 256)          0         
+_________________________________________________________________
+time_distributed_21 (TimeDis (None, 778, 1024)         263168    
+_________________________________________________________________
+p_re_lu_59 (PReLU)           (None, 778, 1024)         796672    
+_________________________________________________________________
+time_distributed_22 (TimeDis (None, 778, 1024)         1049600   
+_________________________________________________________________
+p_re_lu_60 (PReLU)           (None, 778, 1024)         796672    
+_________________________________________________________________
+time_distributed_23 (TimeDis (None, 778, 1024)         1049600   
+_________________________________________________________________
+p_re_lu_61 (PReLU)           (None, 778, 1024)         796672    
+_________________________________________________________________
+batch_normalization_15 (Batc (None, 778, 1024)         4096      
+_________________________________________________________________
+dense_22 (Dense)             (None, 778, 61)           62525     
+_________________________________________________________________
+softmax (Activation)         (None, 778, 61)           0         
+=================================================================
+Total params: 4,846,613
+Trainable params: 4,844,357
+Non-trainable params: 2,256
+_________________________________________________________________
+```
+
+* Train session(s)
+> Il modello è stato trainato sun un numero totale di epoche di 50. Di seguito sono riportati gli iperparametri definiti nella creazione del modello:
+
+```
+*Model arguments*
+
+model_class="simple_cnn_2D",
+model_type='real',
+input_shape=[778,4,40],
+n_layers_convs=4,
+n_layers_dense=3,
+sf_dim=8,
+kernel_size=(3,3),
+num_classes=61,
+act='linear',
+aact='prelu',
+padding='same',
+l2_reg=1e-5,
+shared_axes=[0,1],
+opt='adam',
+kernel_init='glorot_normal',
+max_str_len=75
+```
+
+> I valori della CTC loss ottenuti nelle fasi di training e validation sono illustrati di seguito:
+
+First train run                                                                                                                     |
+:----------------------------------------------------------------------------------------------------------------------------------:|
+ loss: 118.9957 - val_loss: 124.3729                                                                                                |
+![alt text](https://github.com/FrancescoVIncelli/MLSP_Project/blob/master/images/simple_cnn_1D_ctc_loss_train_1stRun_20ep_PHN.png)  |
 <!--
 # Esperimenti su Tensorflow Speech Commands Dataset
 ## 1. Dataset
